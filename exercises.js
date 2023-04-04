@@ -29,13 +29,53 @@ let students = [
   },
 ];
 
+//ans
+
+let uniqueArr = arr.filter((value, index, self) => {
+  return self.indexOf(value) === index;
+});
+
+console.log(uniqueArr); 
+
+
+let uniqueStudents = students.filter((value, index, self) => {
+  return self.findIndex((s) => s.id === value.id) === index;
+});
+
+console.log(uniqueStudents); 
+
+
+
 // // Remove false,0,null,undefined, NaN,'' from the array;
 let array = [false, 0, NaN, 6, undefined, "", "Hi"];
 
+//ans
+let array = [false, 0, NaN, 6, undefined, "", "Hi"];
+
+let filteredArray = array.filter((value) => {
+  return Boolean(value); // check if the value is truthy
+});
+
+console.log(filteredArray); 
+
+
+
+
+
 // // 2 . Get the initial from the string
 const input = "George Raymond Richard Martin";
+//ans
+const input = "George Raymond Richard Martin";
+
+let initials = input.split(" ").map((word) => {
+  return word.charAt(0);
+});
+
+console.log(initials.join("")); 
 
 // // Result ="GRRM";
+
+
 
 // // 3. calculate the total number of votes from the given array
 var voters = [
@@ -53,8 +93,17 @@ var voters = [
   { name: "Zack", age: 19, voted: false },
 ];
 function totalVotes(arr) {
-  // your code here
+  let total = arr.reduce((acc, curr) => {
+    return curr.voted ? acc + 1 : acc;
+  }, 0);
+  
+  return total;
 }
+
+console.log(totalVotes(voters))
+
+// 7 votes
+
 
 // 4. convert the voters array into this format:
 var contacts = [
